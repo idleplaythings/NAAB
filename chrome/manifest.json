@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "short_name": "NAAB",
+  "name": "NAAB",
+  "description": "Not Another Army Builder, an ARMY5 enhancement for Infinity",
+  "author": "Idle Playthings",
+  "homepage_url": "https://github.com/idleplaythings/naab",
+  "version": "0.0.0",
+  "permissions": [
+    "tabs",
+    "http://infinitythegame.com/army/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://infinitythegame.com/army/*", "http://www.infinitythegame.com/army/*"],
+      "js": [ "bootstrap.js" ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    "js/naab.js",
+    "js/init.js",
+    "css/naab.css"
+  ]
+}

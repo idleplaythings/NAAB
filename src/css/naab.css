@@ -1,0 +1,124 @@
+/* ARMY 5 unit list */
+#panelLogos {
+  display: none !important;
+}
+
+/* NAAB's custom unit list container */
+#naabUnitPanel {
+  background-color: rgba(200, 200, 240, 0.5);
+  position: absolute;
+  top: 70px;
+  left: 4px;
+  width: 218px;
+  bottom: 0px;
+
+  overflow-y: scroll;
+
+  /* Language selector flags sit at z-index 15 */
+  z-index: 14;
+  padding: 5px;
+}
+
+/* NAAB's custom unit list unit container */
+#naabUnitPanel .logo_unidad {
+  background-color: #fff;
+  box-shadow: 0px 2px 5px 0px #333;
+  border-radius: 8px;
+  background-image: none !important;
+  padding: 8px;
+  cursor: pointer;
+  margin: 5px 0px;
+  position: relative;
+  padding-right: 40px;
+}
+
+#naabUnitPanel .logo_unidad  .unitType {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  padding: 3px;
+  background-color: #44BBFF;
+  color: #fff;
+  opacity: 0.5;
+}
+
+/* Army list */
+
+/* Army list container */
+.elementoLista {
+  position: relative;
+}
+
+/* Name */
+.elementoLista .nombre {
+  font-weight: bold !important;
+}
+
+/* BS Weapons */
+.elementoLista .armasCD {
+  display: block !important;
+  font-size: 70% !important;
+  margin-top: 0px !important;
+}
+
+/* CC Weapons */
+.elementoLista .armasCC {
+  display: block !important;
+  font-size: 70% !important;
+  margin-top: 0px !important;
+}
+
+/* SWC */
+.elementoLista .cap {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+}
+
+/* Cost */
+.elementoLista .coste {
+  position: absolute;
+  top: 2px;
+  right: 44px;
+}
+
+/* Delete */
+.elementoLista .borrar {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+}
+
+/* Clear? */
+.elementoLista .clr {
+}
+
+
+/* Army list */
+
+/* Some units have other units nested inside them, e.g. ALEPH's Drakios */
+#contenedorLista .e_contenedor.selected,
+#contenedorLista .e_contenedor.selected .e_contenedor  {
+  background-color: rgb(250, 150, 150) !important;
+}
+
+/* Profile list */
+.contenedor_opciones .linea_opcion.selected {
+  background-color: rgb(250, 150, 150) !important;
+}
+
+#contenedorLista .e_contenedor.impar .e_contenedor {
+  background: url('../imagenes/paneles/fondo_linea_opcion.png') 0 0 repeat !important;
+}
+
+#naabFooter {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  font-size: 80%;
+  background-color: #ECECEC;
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-right: none;
+}
