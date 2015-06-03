@@ -6,6 +6,11 @@
   "author": "Idle Playthings",
   "homepage_url": "https://github.com/idleplaythings/naab",
   "version": "0.0.0",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "permissions": [
     "tabs",
     "http://infinitythegame.com/army/*"
