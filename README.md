@@ -58,9 +58,10 @@ In addition to adding new features, NAAB also tries to fix bugs where appropriat
 
 Community contributions are welcome! To contribute:
 
-1. Agree to release your work in the public domain
-2. Fork this repository
-3. Pull request your changes against the master branch in this repository
+1. Fork this repository
+2. Pull request your changes against the master branch in this repository
+
+**Please note that NAAB is released to the public domain. By contributing to it, you also agree to release your work to the public domain.**
 
 As a general guideline, try to:
 
@@ -77,14 +78,14 @@ Clone this repository.
 
 #### Google Chrome
 
-1. Open chrome://extensions
+1. Open [chrome://extensions](chrome://extensions)
 2. Enable Developer Mode 
 3. Load the "chrome.ext" directory as an "unpacked extension"
 
 ### NAAB scripts/stylesheets
 
-1. Serve the project's root directory locally somehow (I use the [local-web-server](https://www.npmjs.com/package/local-web-server) for this
-2. Open chrome://extensions
+1. Serve the project's root directory locally somehow (I use the [local-web-server](https://www.npmjs.com/package/local-web-server) for this)
+2. Open [chrome://extensions](chrome://extensions)
 3. Click "Options" under NAAB, switch mode to Development and adjust the Dev URL to suite your setup
 
 ## License
