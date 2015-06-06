@@ -1,11 +1,6 @@
 NAAB = {};
 
 /**
- * Version tag. Filled in as a build step of the extenion.
- */
-NAAB.version = 'v0.0.0';
-
-/**
  * Add a small NAAB branding to the army buidler page
  *
  * This serves two purposes:
@@ -16,9 +11,17 @@ NAAB.renderFooter = function() {
   var naabFooter = new Element('div', {
     id: 'naabFooter'
   });
+
+  var versionText = '';
+
+  if (document.documentElement.getAttribute('naab-extension-version')) {
+    versionText = document.documentElement.getAttribute('naab-extension-version') +
+      ' (' + document.documentElement.getAttribute('naab-release') + ')';
+  }
+
   var naabLink = new Element('a', {
     href: 'https://github.com/idleplaythings/NAAB',
-    text: 'NAAB ' + this.version,
+    text: 'NAAB ' + versionText,
     target: '_blank'
   });
   naabLink.inject(naabFooter);
