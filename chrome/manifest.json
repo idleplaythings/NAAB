@@ -13,18 +13,21 @@
   },
   "permissions": [
     "tabs",
-    "http://infinitythegame.com/army/*"
+    "http://infinitythegame.com/army/*",
+    "storage"
   ],
   "content_scripts": [
     {
       "matches": ["http://infinitythegame.com/army/*", "http://www.infinitythegame.com/army/*"],
       "js": [ "bootstrap.js" ],
-      "run_at": "document_idle"
+      "run_at": "document_end"
     }
   ],
   "web_accessible_resources": [
-    "js/naab.js",
-    "js/init.js",
-    "css/naab.css"
-  ]
+    "init.js"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  }
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><title>NAAB Options</title></head>
+<body>
+
+<h1>NAAB Options</h1>
+
+<table>
+<tr><th>Option</th><th>Value</th></tr>
+<tr><td>Mode</td><td><select id="mode"><option value="live">Live</option><option value="dev">Development</option></td></tr>
+<tr><td>Live&nbsp;URL</td><td><input id="liveUrl" size=70 disabled type="text" value="https://s3-eu-west-1.amazonaws.com/naab.idleplaythings.com"/></td></tr>
+<tr><td>Dev&nbsp;URL</td><td><input id="devUrl" size=70 type="text" value="http://127.0.0.1:3000"/></td></tr>
+</table>
+
+<button id="save">Save</button><span id="status"></span>
+
+<style>
+table {
+  margin-bottom: 10px;
+}
+
+table th {
+  background-color: #ccc;
+}
+
+table th, td {
+  padding: 3px 8px;
+}
+
+#status {
+  margin-left: 5px;
+}
+</style>
+
+<script src="options.js"></script>
+</body>
+</html>
