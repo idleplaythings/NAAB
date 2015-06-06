@@ -40,7 +40,7 @@ NAAB replaces the unit list of a given army/sectorial with its own. This unit li
 
 ### 2. BS and CC weapons visible in the army list
 
-In addition to the unit's profile name and cost, NAAB will also show the unit's BS and CC weapons in the army list. No guessing!
+In addition to the unit's profile name and cost, NAAB will also show the unit's BS and CC weapons in the army list. No more guessing and/or arithmetics to figure out which profile you chose!
 
 ### 3. Switchable profiles
 
