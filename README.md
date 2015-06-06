@@ -1,26 +1,30 @@
 # NAAB
 
-NAAB (Not Another Army Builder) is a browser extension that enhances the "Army 5" Army Builder for Infinity by fixing bugs and adding and enhancing features to it.
+NAAB (Not Another Army Builder) is a browser extension that enhances the ["Army 5" Army Builder](http://infinitythegame.com/army/) for [Infinity](http://infinitythegame.com/) by fixing bugs and adding and enhancing features to it.
+
+At the moment NAAB only supports Google Chrome and Chromium.
+
+You can [install the extension from the Chrome Web Store](https://chrome.google.com/webstore/detail/naab/hlphhcdmfneaflnhcbofelmdgoboampf)
 
 ## Wait, ...what?
 
-Infinity is a tabletop miniature wargame designed and published by a company called Corvus Belli. As a value adding service Corvus Belli has also created a web application commonly known as Army 5 to make it easier to build army lists for Infinity.
+Infinity is a tabletop miniature wargame designed and published by a company called [Corvus Belli](infinitythegame.com/). As a value adding service Corvus Belli has also created a web application commonly known as Army5 to make it easier to build army lists for Infinity.
 
-As great as Infinity and Corvus Belli are, Army 5 is flawed to a point where a number of competing fan-made army builders have cropped up over the years. NAAB is not completely unlike these other army builders, but rather than being a separate application itself it simply tries to reach to the low-hanging fruit and fix the issues in Army 5 directly.
+As great as Infinity and Corvus Belli are, Army5 is flawed to a point where a number of competing fan-made army builders have cropped up over the years. NAAB is not completely unlike these other army builders, but rather than being a separate application itself it simply tries to reach to the low-hanging fruit and fix the issues in Army5 directly.
 
 ## How?
 
 When you open the army builder with NAAB installed, it will inject a bootstrap script to the page. That bootstrap script connects to Amazon S3, looks up the current version of the extension, and injects the appropriate scripts and stylesheets to the page.
 
-By and large NAAB works by simply replacing the functions defined in Army 5 with its own wrappers that change and enhance the default functionality.
+By and large NAAB works by simply replacing the functions defined in Army5 with its own wrappers that change and enhance the default functionality.
 
 ## Goals
 
-Our hope is that NAAB is a temporary solution to a temporary problem, that one day Army 5 reaches a sufficient quality by itself to render this extension unnecessary.
+Our hope is that NAAB is a temporary solution to a temporary problem, that one day Army5 reaches a sufficient quality by itself to render this extension unnecessary.
 
 ## Risks
 
-There is a fair chance that NAAB will be broken often. Since changes to Army 5 are unnannounced, the extension has no chance but to reactively try and keep up. This is also why the main assets of the extension are hosted rather than bundled in the extension; updates and fixes can be deployed without requiring updates to the extension itself.
+There is a fair chance that NAAB will be broken often. Since changes to Army5 are unnannounced, the extension has no chance but to reactively try and keep up. This is also why the main assets of the extension are hosted rather than bundled in the extension; updates and fixes can be deployed without requiring updates to the extension itself.
 
 ## Browser support
 
