@@ -22,4 +22,10 @@ naab.chrome:
 	# Create zip archive
 	cd build/naab.chrome.v$(VERSION)/ && zip -r naab.chrome.v$(VERSION).zip * && mv *.zip ..
 
-all: naab.chrome
+deploy:
+	awk '{ printf "%d", $$1+1 }' RELEASE > RELEASE.new && mv RELEASE.new RELEASE
+	s3cmd put --config s3cmd.cfg RELEASE s3://naab.idleplaythings.com/
+	s3cmd put --config s3cmd.cfg --recursive src s3://naab.idleplaythings.com/releases/$$(cat RELEASE)/
+
+all:
+	# Nada
