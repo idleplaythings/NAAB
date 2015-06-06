@@ -36,6 +36,8 @@ At the moment NAAB only supports Google Chrome and Chromium. Support for other b
 
 NAAB replaces the unit list of a given army/sectorial with its own. This unit list is rendered to the left-hand-side of the screen, does NOT display the unit's logo and does not have a gimmicky scrolling. In summary NAAB's unit list is pleasant to use.
 
+![Unit list demonstrated](unit_list.gif)
+
 ### 2. BS and CC weapons visible in the army list
 
 In addition to the unit's profile name and cost, NAAB will also show the unit's BS and CC weapons in the army list. No guessing!
@@ -43,6 +45,8 @@ In addition to the unit's profile name and cost, NAAB will also show the unit's 
 ### 3. Switchable profiles
 
 NAAB allows you to select the units in your army list, and switch their profile without having to add the new profile to the end of the list and removing the previous one.
+
+![Weapons and changing profile demonstrated](weapons_and_profile_change.gif)
 
 ## Bug Fixes
 
