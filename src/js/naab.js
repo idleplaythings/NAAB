@@ -275,8 +275,7 @@ NAAB.hookIntoArmy5 = function() {
     }
 
     if (typeof listado_elementos === 'undefined') {
-      console.log('Waiting for listado_elementos element to appear');
-      setTimeout(fixUnitDragCompleteHandler.bind(null, attempts-1), 200);
+      setTimeout(fixUnitDragCompleteHandler.bind(null, attempts-1), 100);
       return;
     }
 
@@ -298,7 +297,7 @@ NAAB.hookIntoArmy5 = function() {
     }];
   };
 
-  fixUnitDragCompleteHandler(10);
+  fixUnitDragCompleteHandler(30);
 
   // Deselect the selected unit if a click event reaches the main container
   $('contenedorFondos').addEvent('click', function() {
