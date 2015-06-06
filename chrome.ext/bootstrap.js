@@ -35,8 +35,14 @@ chrome.storage.sync.get({
       return;
     }
 
-    addCss(formatString(CSS_URL, [xhr.responseText]));
-    addScript(formatString(JS_URL, [xhr.responseText]), function() {
+    var release = xhr.responseText;
+    var manifest = chrome.runtime.getManifest();
+
+    document.documentElement.setAttribute('naab-extension-version', manifest.version);
+    document.documentElement.setAttribute('naab-release', release);
+
+    addCss(formatString(CSS_URL, [release]));
+    addScript(formatString(JS_URL, [release]), function() {
       // Again, this execution context is separate from the one actually used by the ARMY5 frame,
       // so NAAB initialisation must happen via a script that's injected to the actual page.
       addScript(chrome.extension.getURL('init.js'));
