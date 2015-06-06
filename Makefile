@@ -1,15 +1,9 @@
-naab.chrome:
+chrome:
 	rm -rf "build/naab.chrome.v$(VERSION)"
 	rm -rf "build/naab.chrome.v$(VERSION).crx"
 
 	mkdir -p build
-	cp -rp chrome "build/naab.chrome.v$(VERSION)"
-
-	# Replace symlinks with the actual directories
-	rm "build/naab.chrome.v$(VERSION)/css"
-	rm "build/naab.chrome.v$(VERSION)/js"
-	cp -rp src/js "build/naab.chrome.v$(VERSION)"
-	cp -rp src/css "build/naab.chrome.v$(VERSION)"
+	cp -rp chrome.ext "build/naab.chrome.v$(VERSION)"
 
 	# Copy icons in place
 	rm build/naab.chrome.v$(VERSION)/icon*.png

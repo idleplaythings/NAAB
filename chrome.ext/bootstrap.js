@@ -10,8 +10,8 @@ chrome.storage.sync.get({
   if (options.mode === 'live') {
     BASE_URL = options.liveUrl;
     RELEASE_URL = BASE_URL + '/RELEASE';
-    CSS_URL = BASE_URL + '/%1/src/css/naab.css';
-    JS_URL = BASE_URL + '/%1/src/js/naab.js';
+    CSS_URL = BASE_URL + '/releases/%1/src/css/naab.css';
+    JS_URL = BASE_URL + '/releases/%1/src/js/naab.js';
   } else {
     BASE_URL = options.devUrl;
     RELEASE_URL = BASE_URL + '/RELEASE';
