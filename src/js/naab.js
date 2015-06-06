@@ -268,22 +268,37 @@ NAAB.hookIntoArmy5 = function() {
     NAAB.onUnitSelected(_cargaDatosCache, id, IDArmy);
   };
 
-  // Override army list drag on complete handler to fix the bug where by the
-  // yellow highlight color sticks with the dragged unit.
-  listado_elementos.$events.complete = [function(e) {
-    dragging = false;
+  var fixUnitDragCompleteHandler = function(attempts) {
+    if (attempts === 0) {
+      console.log('Unable to patch unit drag complete handler');
+      return;
+    }
 
-    // This is the actual fix: remove "seleccionado" class from every army list
-    // element when the drag is complete
-    $$(".elementoLista").each(function(e) {
-      e.removeClass("seleccionado");
-    });
+    if (typeof listado_elementos === 'undefined') {
+      console.log('Waiting for listado_elementos element to appear');
+      setTimeout(fixUnitDragCompleteHandler.bind(null, attempts-1), 200);
+      return;
+    }
 
-    // ARMY5 stuff...
-    ponParImpar();
-    checkGrupos();
-    gestionaOrdenesGrupos();
-  }];
+    // Override army list drag on complete handler to fix the bug where by the
+    // yellow highlight color sticks with the dragged unit.
+    listado_elementos.$events.complete = [function(e) {
+      dragging = false;
+
+      // This is the actual fix: remove "seleccionado" class from every army list
+      // element when the drag is complete
+      $$(".elementoLista").each(function(e) {
+        e.removeClass("seleccionado");
+      });
+
+      // ARMY5 stuff...
+      ponParImpar();
+      checkGrupos();
+      gestionaOrdenesGrupos();
+    }];
+  };
+
+  fixUnitDragCompleteHandler(10);
 
   // Deselect the selected unit if a click event reaches the main container
   $('contenedorFondos').addEvent('click', function() {

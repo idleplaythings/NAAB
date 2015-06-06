@@ -21,7 +21,7 @@ function restoreOptions() {
   chrome.storage.sync.get({
     mode: 'live',
     liveUrl: 'https://s3-eu-west-1.amazonaws.com/naab.idleplaythings.com',
-    devUrl: 'http://127.0.0.1:3000'
+    devUrl: 'http://127.0.0.1:8000'
   }, function(options) {
     document.getElementById('mode').value = options.mode;
     document.getElementById('liveUrl').value = options.liveUrl;

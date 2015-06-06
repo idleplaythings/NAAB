@@ -3,11 +3,11 @@ console.log('NAAB activated');
 chrome.storage.sync.get({
   mode: 'live',
   liveUrl: 'https://s3-eu-west-1.amazonaws.com/naab.idleplaythings.com',
-  devUrl: 'http://127.0.0.1:3000'
+  devUrl: 'http://127.0.0.1:8000'
 }, function(options) {
   var BASE_URL, RELEASE_URL, CSS_URL, JS_URL;
 
-  if (options.mode) {
+  if (options.mode === 'live') {
     BASE_URL = options.liveUrl;
     RELEASE_URL = BASE_URL + '/RELEASE';
     CSS_URL = BASE_URL + '/%1/src/css/naab.css';
