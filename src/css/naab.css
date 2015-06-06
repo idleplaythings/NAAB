@@ -72,14 +72,14 @@
 .elementoLista .cap {
   position: absolute;
   top: 2px;
-  right: 10px;
+  right: 44px;
 }
 
 /* Cost */
 .elementoLista .coste {
   position: absolute;
   top: 2px;
-  right: 44px;
+  right: 17px;
 }
 
 /* Delete */
