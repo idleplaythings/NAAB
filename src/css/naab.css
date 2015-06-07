@@ -32,6 +32,10 @@
   padding-right: 40px;
 }
 
+#naabUnitPanel .logo_unidad:hover {
+  background-color: yellow;
+}
+
 #naabUnitPanel .logo_unidad  .unitType {
   position: absolute;
   top: 0px;
