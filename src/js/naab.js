@@ -193,7 +193,12 @@ NAAB.onUnitListRendered = function(originalFn, data) {
 
   // Render NAAB unit panel on top of the regular one
   var naabUnitPanel = new Element('div', { id: 'naabUnitPanel' });
-  document.body.appendChild(naabUnitPanel);
+
+  // Some elements in ARMY5 DOM have duplicate IDs, and if the unit panel is rendered to the end of
+  // body some untis become unselectable because elements that share the unit element's ID appear in the
+  // dom before the unit panel and are picked up by ARMY5. #panelLogos is the container element for
+  // ARMY5's unit lists, so placing NAAB unit panel after that should ensure it always works.
+  naabUnitPanel.inject($('panelLogos'), 'after');
 
   var dataHTML = data.substr(data.indexOf('|') + 1);
   var dataDOM = Elements.from(dataHTML);
