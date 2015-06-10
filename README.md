@@ -79,7 +79,7 @@ Clone this repository.
 #### Google Chrome
 
 1. Open [chrome://extensions](chrome://extensions)
-2. Enable Developer Mode 
+2. Enable Developer Mode
 3. Load the "chrome.ext" directory as an "unpacked extension"
 
 ### NAAB scripts/stylesheets
@@ -87,7 +87,6 @@ Clone this repository.
 1. Serve the project's root directory locally somehow (I use the [local-web-server](https://www.npmjs.com/package/local-web-server) for this)
 2. Open [chrome://extensions](chrome://extensions)
 3. Click "Options" under NAAB, switch mode to Development and adjust the Dev URL to suite your setup
-4. At the project root, make a text file names `RELEASE` and add a number, ex: `6`
 
 ## License
 
