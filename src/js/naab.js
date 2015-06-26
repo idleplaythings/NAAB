@@ -228,15 +228,25 @@ NAAB.onUnitListRendered = function(originalFn, data) {
   // Render NAAB unit panel on top of the regular one
   var naabUnitPanel = new Element('div', { id: 'naabUnitPanel' });
 
-  var sortByNameBtn = new Element('button', { id: 'sortByName' });
-  sortByNameBtn.set('text', 'Sort by Name');
-  sortByNameBtn.addEvent('click', NAAB.sortUnitsByName);
-  sortByNameBtn.inject(naabUnitPanel);
+  var sortByNameLabel = new Element('label');
+  var sortByNameInput = new Element('input', { type: 'radio', name: 'sortBy', value: 'name' });
+  var sortByNameText = new Element('span');
+  sortByNameText.set('text', 'Sort by name');
+  sortByNameInput.addEvent('change', NAAB.applyUnitSort);
 
-  var sortByType = new Element('button', { id: 'sortByType' });
-  sortByType.set('text', 'Sort by Type');
-  sortByType.addEvent('click', NAAB.sortUnitsByType);
-  sortByType.inject(naabUnitPanel);
+  sortByNameInput.inject(sortByNameLabel);
+  sortByNameText.inject(sortByNameLabel);
+  sortByNameLabel.inject(naabUnitPanel);
+
+  var sortByTypeLabel = new Element('label');
+  var sortByTypeInput = new Element('input', { type: 'radio', name: 'sortBy', value: 'type' });
+  var sortByTypeText = new Element('span');
+  sortByTypeText.set('text', 'Sort by Type');
+  sortByTypeInput.addEvent('change', NAAB.applyUnitSort);
+
+  sortByTypeInput.inject(sortByTypeLabel);
+  sortByTypeText.inject(sortByTypeLabel);
+  sortByTypeLabel.inject(naabUnitPanel);
 
   var unitContainer = new Element('div', { 'class': 'unitContainer' });
   unitContainer.inject(naabUnitPanel);
@@ -289,7 +299,28 @@ NAAB.onUnitListRendered = function(originalFn, data) {
     unitContainer.appendChild(element);
   });
 
-  NAAB.sortUnitsByName();
+  NAAB.setUnitSort();
+  NAAB.applyUnitSort();
+};
+
+NAAB.setUnitSort = function() {
+  var sort = localStorage.getItem('unitSort');
+
+  if (!sort) {
+    sort = 'name';
+  }
+
+  $$('input[name=sortBy][value=' + sort + ']')[0].set('checked', 'checked');
+};
+
+NAAB.applyUnitSort = function() {
+  var sortType = $$('input[name=sortBy]:checked')[0].value;
+
+  if (sortType === 'name') {
+    NAAB.sortUnitsByName();
+  } else {
+    NAAB.sortUnitsByType();
+  }
 };
 
 NAAB.sortUnitsByName = function() {
@@ -301,6 +332,8 @@ NAAB.sortUnitsByName = function() {
   }).each(function(element) {
     $$('#naabUnitPanel .unitContainer')[0].appendChild(element);
   });
+
+  localStorage.setItem('unitSort', 'name');
 };
 
 NAAB.getUnitTypeSortKey = function(unitType) {
@@ -341,6 +374,8 @@ NAAB.sortUnitsByType = function() {
   }).each(function(element) {
     $$('#naabUnitPanel .unitContainer')[0].appendChild(element);
   });
+
+  localStorage.setItem('unitSort', 'type');
 };
 
 /**
