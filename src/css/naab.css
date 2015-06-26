@@ -17,6 +17,7 @@
   /* Language selector flags sit at z-index 15 */
   z-index: 14;
   padding: 5px;
+  padding-top: 8px;
 }
 
 /* NAAB's custom unit list unit container */
@@ -54,6 +55,24 @@
 #naabUnitPanel .logo_unidad  .unitType.sk   { background-color: #B88A00 }
 #naabUnitPanel .logo_unidad  .unitType.wb   { background-color: #CC33FF }
 #naabUnitPanel .logo_unidad  .unitType.none { background-color: #000 }
+
+#naabUnitPanel .unitSort {
+  border: 1px solid #ccc;
+  background-color: #eee;
+  padding: 4px 5px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#naabUnitPanel .unitSort input {
+  margin-right: 2px;
+  vertical-align: middle;
+}
+
+#naabUnitPanel .unitContainer {
+  margin-top: 10px;
+}
 
 /* Army list */
 

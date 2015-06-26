@@ -228,20 +228,20 @@ NAAB.onUnitListRendered = function(originalFn, data) {
   // Render NAAB unit panel on top of the regular one
   var naabUnitPanel = new Element('div', { id: 'naabUnitPanel' });
 
-  var sortByNameLabel = new Element('label');
+  var sortByNameLabel = new Element('label', { 'class': 'unitSort' });
   var sortByNameInput = new Element('input', { type: 'radio', name: 'sortBy', value: 'name' });
   var sortByNameText = new Element('span');
-  sortByNameText.set('text', 'Sort by name');
+  sortByNameText.set('text', 'Sort by Name');
   sortByNameInput.addEvent('change', NAAB.applyUnitSort);
 
   sortByNameInput.inject(sortByNameLabel);
   sortByNameText.inject(sortByNameLabel);
   sortByNameLabel.inject(naabUnitPanel);
 
-  var sortByTypeLabel = new Element('label');
+  var sortByTypeLabel = new Element('label', { 'class': 'unitSort' });
   var sortByTypeInput = new Element('input', { type: 'radio', name: 'sortBy', value: 'type' });
   var sortByTypeText = new Element('span');
-  sortByTypeText.set('text', 'Sort by Type');
+  sortByTypeText.set('text', '...or Type');
   sortByTypeInput.addEvent('change', NAAB.applyUnitSort);
 
   sortByTypeInput.inject(sortByTypeLabel);
