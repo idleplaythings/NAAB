@@ -43,8 +43,17 @@
   padding: 3px;
   background-color: #44BBFF;
   color: #fff;
-  opacity: 0.5;
+  opacity: 0.9;
 }
+
+#naabUnitPanel .logo_unidad  .unitType.li   { background-color: #33FF66 }
+#naabUnitPanel .logo_unidad  .unitType.mi   { background-color: #CCFF33 }
+#naabUnitPanel .logo_unidad  .unitType.hi   { background-color: #FFCC33 }
+#naabUnitPanel .logo_unidad  .unitType.tag  { background-color: #FF3366 }
+#naabUnitPanel .logo_unidad  .unitType.rem  { background-color: #33CCFF }
+#naabUnitPanel .logo_unidad  .unitType.sk   { background-color: #B88A00 }
+#naabUnitPanel .logo_unidad  .unitType.wb   { background-color: #CC33FF }
+#naabUnitPanel .logo_unidad  .unitType.none { background-color: #000 }
 
 /* Army list */
 

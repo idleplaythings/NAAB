@@ -268,6 +268,7 @@ NAAB.onUnitListRendered = function(originalFn, data) {
       // every unit has a type (e.g. ALEPH's Netrods)
       if (currentUnitType) {
         var unitTypeElement = new Element('div', { class: 'unitType'});
+        unitTypeElement.addClass(currentUnitType === '?' ? 'none' : currentUnitType.toLowerCase());
         unitTypeElement.set('text', currentUnitType);
         element.appendChild(unitTypeElement);
       }
