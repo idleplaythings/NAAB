@@ -228,6 +228,19 @@ NAAB.onUnitListRendered = function(originalFn, data) {
   // Render NAAB unit panel on top of the regular one
   var naabUnitPanel = new Element('div', { id: 'naabUnitPanel' });
 
+  var sortByNameBtn = new Element('button', { id: 'sortByName' });
+  sortByNameBtn.set('text', 'Sort by Name');
+  sortByNameBtn.addEvent('click', NAAB.sortUnitsByName);
+  sortByNameBtn.inject(naabUnitPanel);
+
+  var sortByType = new Element('button', { id: 'sortByType' });
+  sortByType.set('text', 'Sort by Type');
+  sortByType.addEvent('click', NAAB.sortUnitsByType);
+  sortByType.inject(naabUnitPanel);
+
+  var unitContainer = new Element('div', { 'class': 'unitContainer' });
+  unitContainer.inject(naabUnitPanel);
+
   // Some elements in ARMY5 DOM have duplicate IDs, and if the unit panel is rendered to the end of
   // body some untis become unselectable because elements that share the unit element's ID appear in the
   // dom before the unit panel and are picked up by ARMY5. #panelLogos is the container element for
@@ -237,7 +250,7 @@ NAAB.onUnitListRendered = function(originalFn, data) {
   var dataHTML = data.substr(data.indexOf('|') + 1);
   var dataDOM = Elements.from(dataHTML);
 
-  var currentUnitType = '';
+  var currentUnitType = '?';
 
   dataDOM.map(function(element, index) {
     // Even though not visible in the ARMY5 default UI, the HTML returned from the server
@@ -254,7 +267,7 @@ NAAB.onUnitListRendered = function(originalFn, data) {
       // element to be rendered as a helpful UI feature. This is done conditionally since not
       // every unit has a type (e.g. ALEPH's Netrods)
       if (currentUnitType) {
-        var unitTypeElement = new Element('div', { class: 'unitType '});
+        var unitTypeElement = new Element('div', { class: 'unitType'});
         unitTypeElement.set('text', currentUnitType);
         element.appendChild(unitTypeElement);
       }
@@ -271,13 +284,66 @@ NAAB.onUnitListRendered = function(originalFn, data) {
     // Unit type elements were mapepd to null in the previous step, and are now removed
     // from the array
     return element;
-  }).sort(function(a, b) {
+  })
+  // .sort(function(a, b) {
+  //   // Sort units alphabetically by their name
+  //   var aText = a.getElement('.isc').get('text');
+  //   var bText = b.getElement('.isc').get('text');
+  //   return aText.localeCompare(bText);
+  // })
+  .each(function(element) {
+    unitContainer.appendChild(element);
+  });
+};
+
+NAAB.sortUnitsByName = function() {
+  $$('#naabUnitPanel .unitContainer > .logo_unidad').sort(function(a, b) {
     // Sort units alphabetically by their name
-    var aText = a.getElement('.isc').get('text');
-    var bText = b.getElement('.isc').get('text');
-    return aText.localeCompare(bText);
+    var aName = a.getElement('.isc').get('text');
+    var bName = b.getElement('.isc').get('text');
+    return aName.localeCompare(bName);
   }).each(function(element) {
-    naabUnitPanel.appendChild(element);
+    $$('#naabUnitPanel .unitContainer')[0].appendChild(element);
+  });
+};
+
+NAAB.getUnitTypeSortKey = function(unitType) {
+  switch(unitType) {
+    case 'LI':
+      return 1;
+    case 'MI':
+      return 2;
+    case 'HI':
+      return 3;
+    case 'TAG':
+      return 4;
+    case 'REM':
+      return 5;
+    case 'SK':
+      return 6;
+    case 'WB':
+      return 7;
+    default:
+      return 0;
+  }
+};
+
+NAAB.sortUnitsByType = function() {
+  $$('#naabUnitPanel .unitContainer > .logo_unidad').sort(function(a, b) {
+
+    var aKey = NAAB.getUnitTypeSortKey(a.getElement('.unitType').get('text'));
+    var bKey = NAAB.getUnitTypeSortKey(b.getElement('.unitType').get('text'));
+
+    // Secondary sort by name
+    if (aKey === bKey) {
+      var aName = a.getElement('.isc').get('text');
+      var bName = b.getElement('.isc').get('text');
+      return aName.localeCompare(bName);
+    }
+
+    return aKey - bKey;
+  }).each(function(element) {
+    $$('#naabUnitPanel .unitContainer')[0].appendChild(element);
   });
 };
 
