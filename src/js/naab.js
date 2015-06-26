@@ -284,16 +284,11 @@ NAAB.onUnitListRendered = function(originalFn, data) {
     // Unit type elements were mapepd to null in the previous step, and are now removed
     // from the array
     return element;
-  })
-  // .sort(function(a, b) {
-  //   // Sort units alphabetically by their name
-  //   var aText = a.getElement('.isc').get('text');
-  //   var bText = b.getElement('.isc').get('text');
-  //   return aText.localeCompare(bText);
-  // })
-  .each(function(element) {
+  }).each(function(element) {
     unitContainer.appendChild(element);
   });
+
+  NAAB.sortUnitsByName();
 };
 
 NAAB.sortUnitsByName = function() {
