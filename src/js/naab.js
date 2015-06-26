@@ -116,6 +116,40 @@ NAAB.onUnitSelected = function(originalFn, id, IDArmy) {
 };
 
 /**
+ * Alternative "event handler" for unit selection in the army list.
+ *
+ * This function is triggered for units in a pre-loaded army lists (i.e. when you share a link
+ * to your army), and for whatever reason ARMY5 handles this slightly differently compared to
+ * units that are added to the army list manually.
+ *
+ * This function is effectively a duplication of NAAB.onUnitSelected, with slight differences in
+ * the root element matching, as these elements are rendered in two different ways. This duplication
+ * is intentional.
+ */
+NAAB.onUnitSelected2 = function(originalFn, idlogo, idlinea) {
+  var target = event.target;
+  var armyListUnit;
+
+  // The idarmy property is not present in "preloaded" units, so look for the onclick property instead
+  // to differentiate the root element. This is important for units that contain other units.
+  if (target.hasClass('e_contenedor') && target.get('onclick')) {
+    armyListUnit = target;
+  } else {
+    armyListUnit = target.getParents('[onclick]')[0];
+  }
+
+  NAAB.deselectUnit();
+  NAAB.deselectProfile();
+  NAAB.selectUnit(armyListUnit);
+
+  originalFn(idlogo, idlinea);
+
+  NAAB.deselectProfile();
+  NAAB.selectProfileByArmyListUnit(armyListUnit);
+};
+
+
+/**
  * This event handler is triggered when the main menu (the faction/army selection menu) is rendered.
  *
  * NAAB hooks to this event to clean up after itself by hiding the unit list and clearing any selected
@@ -274,6 +308,11 @@ NAAB.hookIntoArmy5 = function() {
   var _cargaDatosCache = cargaDatosCache;
   cargaDatosCache = function(id, IDArmy) {
     NAAB.onUnitSelected(_cargaDatosCache, id, IDArmy);
+  };
+
+  var _seleccionaElemento = seleccionaElemento;
+  seleccionaElemento = function(idlogo, idlinea) {
+    NAAB.onUnitSelected2(_seleccionaElemento, idlogo, idlinea);
   };
 
   var fixUnitDragCompleteHandler = function(attempts) {
