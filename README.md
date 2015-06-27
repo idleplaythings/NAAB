@@ -34,9 +34,15 @@ At the moment NAAB only supports Google Chrome and Chromium. Support for other b
 
 ### 1. Better unit list
 
+#### 1.1 Easier to scroll and scan
+
 NAAB replaces the unit list of a given army/sectorial with its own. This unit list is rendered to the left-hand-side of the screen, does NOT display the unit's logo and does not have a gimmicky scrolling. In summary NAAB's unit list is pleasant to use.
 
 ![Unit list demonstrated](unit_list.gif)
+
+#### 1.2 Sort units by name or type
+
+You can sort the unit list either by name or unit type. Unit type sort is the default in ARMY5, but as an added feature NAAB will also do a secondary alphabetical sort by unit name for units of the same type.
 
 ### 2. BS and CC weapons visible in the army list
 
